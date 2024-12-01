@@ -1,0 +1,56 @@
+{
+    "manifest_version": 3,
+    "name": "Dapsy",
+    "version": "0.0.2",
+    "description": "Detects dark patterns on websites.",
+    "permissions": [
+      "activeTab",
+      "storage",
+      "tabs",
+      "notifications"
+      
+    ],
+    "host_permissions": [
+      "http://127.0.0.1:8000/*",
+      "http://localhost:8000/*",
+      "https://*/*",
+      "http://*/*",
+      "http://127.0.0.1:8000/"
+    ],
+    
+    "action": {
+      "default_icon": {
+        "16": "assets/images/icon-black.png",
+        "24": "assets/images/icon-black.png",
+        "32": "assets/images/icon-black.png"
+      },
+      "default_title": "Dapsy",
+      "default_popup": "popup.html"
+    },
+
+    "background": {
+      "service_worker": "background.js"
+    },
+
+    
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/images/icon-black.png",
+          "assets/images/fg-scan.jpg"
+        ],
+
+        "matches": ["<all_urls>"]
+      }
+
+    ]
+
+    
+  }
+  
